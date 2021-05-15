@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
+
+    public InteractionInputData interactionInputData;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        interactionInputData.Reset();
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         UpdateMouseLook();
         UpdateMovement();
+        UpdateInteraction();
     }
 
     void UpdateMouseLook()
@@ -82,4 +86,9 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    void UpdateInteraction()
+    {
+        interactionInputData.InteractedClicked = Input.GetKeyDown(KeyCode.E);
+        interactionInputData.InteractedRelease = Input.GetKeyUp(KeyCode.E);
+    }
 }
