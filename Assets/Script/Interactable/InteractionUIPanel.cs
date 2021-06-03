@@ -11,7 +11,7 @@ public class InteractionUIPanel : MonoBehaviour
     
     public void SetTooltip(string tooltip)
     {
-        tooltipText.SetText("<mark=#999999aa>"+tooltip+"</mark>");
+        tooltipText.SetText(tooltip);
     }
 
     public void UpdateProgressBar(float fillAmount)
