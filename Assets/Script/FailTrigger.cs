@@ -1,23 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FailTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    bool gameHasEnded = false;
+    public float restartDelay = 1f;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered"); 
+        if (gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("Triggered"); 
+            Invoke("Restart", restartDelay);
+        }
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

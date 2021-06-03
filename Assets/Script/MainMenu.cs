@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public void playGame()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MazeGame");
     }
 
     public void quitGame()

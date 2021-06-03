@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/Keypad.unity
-    guid: b22e3d54b9d644efa9ba4bf9bf651a44
+  - enabled: 1
+    path: Assets/Scenes/MazeGame.unity
+    guid: 2332224c8e2522c49a13be43b250881c
   m_configObjects: {}
