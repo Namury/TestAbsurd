@@ -21,11 +21,16 @@ public class PlayerController : MonoBehaviour
     Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
 
+    AudioSource audioSrc;
+
+    bool isMoving;
+
     public InteractionInputData interactionInputData;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        audioSrc = GetComponent<AudioSource>();
         if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -72,6 +77,20 @@ public class PlayerController : MonoBehaviour
         velocityY += gravity * Time.deltaTime;
 
         Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x);
+
+        if (controller.velocity.x != 0 || controller.velocity.z != 0){
+            isMoving = true;
+        } else{
+            isMoving = false;
+        }
+        
+        if(isMoving){
+            if(!audioSrc.isPlaying){
+                audioSrc.Play();
+            }
+        }else{
+            audioSrc.Stop();
+        }
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
