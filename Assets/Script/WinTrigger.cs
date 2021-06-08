@@ -16,6 +16,13 @@ public class WinTrigger : MonoBehaviour
     void Win()
     {
         SceneManager.LoadScene("WinScene");
+        
+    }
+
+    void Exit()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
     }
 }
 

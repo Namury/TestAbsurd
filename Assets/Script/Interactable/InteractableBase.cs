@@ -13,7 +13,7 @@ public class InteractableBase : MonoBehaviour, IInteractable
         [SerializeField] private bool multipleUse =false;
         [SerializeField] private bool isInteractable = true;
 
-        [SerializeField] private string tooltipMessage = "<mark=#999999aa>Interact</mark>";
+        [SerializeField] private string tooltipMessage = "You Died";
     #endregion
 
     #region Properties
@@ -23,8 +23,6 @@ public class InteractableBase : MonoBehaviour, IInteractable
         public bool IsInteractable => isInteractable;
 
         public string TooltipMessage => tooltipMessage;
-
-
 
     #endregion
 
